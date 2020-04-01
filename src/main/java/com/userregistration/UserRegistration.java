@@ -7,6 +7,7 @@ public class UserRegistration {
     String PASSWORD_AT_LEAST_EIGHT_CHARACTER_LONG="[a-z]{8,}";
     String PASSWORD_AT_LEAST_ONE_UPPERCASE_CHARACTER="(?=.*[a-z])(?=.*[A-Z]).{8,20}";
     String PASSWORD_AT_LEAST_ONE_NUMBER="((?=.*[a-z])(?=.*[0-9])(?=.*[A-Z]).{8,20})";
+    String PASSWORD_HAS_EXACTLY_ONE_SYMBOL="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^$@!#%*?&]*[$#@!%*?&][^$@!#%*?&]*$).{8,}";
 
     public boolean validInputName(String inputName) {
         return inputName.matches(NAME_PATTERN);

@@ -86,4 +86,16 @@ public class UserRegistrationTest {
       boolean passwordAtLeastOneNumber = validator.validatePassword("adminroot", validator.PASSWORD_AT_LEAST_ONE_NUMBER);
       Assert.assertFalse(passwordAtLeastOneNumber);
    }
+
+   @Test
+   public void givenPasswordHasExactlyOneSymbol_WhenProper_ShouldReturnTrue() {
+      boolean passwordHasExactlyOneSymbol = validator.validatePassword("Admin@root123", validator.PASSWORD_HAS_EXACTLY_ONE_SYMBOL);
+      Assert.assertTrue(passwordHasExactlyOneSymbol);
+   }
+
+   @Test
+   public void givenPasswordHasExactlyOneSymbol_WhenProper_ShouldReturnFalse() {
+      boolean passwordHasExactlyOneSymbol = validator.validatePassword("adminroot@123", validator.PASSWORD_HAS_EXACTLY_ONE_SYMBOL);
+      Assert.assertFalse(passwordHasExactlyOneSymbol);
+   }
 }
