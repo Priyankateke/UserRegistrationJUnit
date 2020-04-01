@@ -55,12 +55,12 @@ public class UserRegistrationTest {
 
    @Test
    public void givenEightCharacterLongPassword_WhenProper_ShouldReturnTrue() {
-      boolean passwordAtLeastEightCharacterLong = validator.validateEightCharacterLongPassword("adminroot");
+      boolean passwordAtLeastEightCharacterLong = validator.validatePassword("adminroot",validator.PASSWORD_AT_LEAST_EIGHT_CHARACTER_LONG);
       Assert.assertTrue(passwordAtLeastEightCharacterLong);
    }
    @Test
    public void givenEightCharacterLongPassword_WhenImProper_ShouldReturnFalse() {
-      boolean passwordAtLeastEightCharacterLong = validator.validateEightCharacterLongPassword("osroot");
+      boolean passwordAtLeastEightCharacterLong = validator.validatePassword("osroot",validator.PASSWORD_AT_LEAST_EIGHT_CHARACTER_LONG);
       Assert.assertFalse(passwordAtLeastEightCharacterLong);
    }
 
@@ -74,5 +74,16 @@ public class UserRegistrationTest {
    public void givenAtLeastOneUpperCaseCharacterPassword_WhenImproper_ShouldReturnFalse() {
       boolean passwordAtLeastOneUpperCaseCharacter = validator.validatePassword("adminroot", validator.PASSWORD_AT_LEAST_ONE_UPPERCASE_CHARACTER);
       Assert.assertFalse(passwordAtLeastOneUpperCaseCharacter);
+   }
+
+   @Test
+   public void givenAtLeastNumberPassword_WhenProper_ShouldReturnTrue() {
+      boolean passwordAtLeastOneNumber = validator.validatePassword("Adminroot123", validator.PASSWORD_AT_LEAST_ONE_NUMBER);
+      Assert.assertTrue(passwordAtLeastOneNumber);
+   }
+   @Test
+   public void givenAtLeastNumberPassword_WhenProper_ShouldReturnFalse() {
+      boolean passwordAtLeastOneNumber = validator.validatePassword("adminroot", validator.PASSWORD_AT_LEAST_ONE_NUMBER);
+      Assert.assertFalse(passwordAtLeastOneNumber);
    }
 }
