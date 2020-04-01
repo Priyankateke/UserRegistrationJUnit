@@ -40,4 +40,15 @@ public class UserRegistrationTest {
       boolean emailId = validator.validateEmailId("abcgail.com");
       Assert.assertFalse(emailId);
    }
+
+   @Test
+   public void givenMobileNumber_WhenProper_ShouldReturnTrue() {
+      boolean mobileNumber = validator.validateMobileNumber("91 9804973844");
+      Assert.assertTrue(mobileNumber);
+   }
+   @Test
+   public void givenMobileNumber_WhenImproper_ShouldReturnFalse() {
+      boolean mobileNumber = validator.validateMobileNumber("91 18616253601");
+      Assert.assertFalse(mobileNumber);
+   }
 }
